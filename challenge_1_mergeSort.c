@@ -1,13 +1,8 @@
 #include<stdio.h>
-//#include<stdlib.h>
-//#include<stdbool.h>
 
 void mergeSort(int A[],int B[],int lbound, int ubound);
 void merge(int A[],int B[],int lbound, int mid, int ubound);
 void copy(int A[],int B[],int n);
-
-/* There is some error in the mergeSort or merge functions that is making the program return an
- erroneous array. Take a look at it later and solve it. */
 
 int main() {
     int A[8] = {
@@ -32,18 +27,24 @@ int main() {
 
 void mergeSort(int A[],int B[],int lbound, int ubound) {
     int mid = (lbound+ubound)/2;
+    /* divide in half until cannot anymore, then proceeds to merge the "array" of one element */
     if (lbound < ubound) {
         mergeSort(A,B,lbound,mid);
         mergeSort(A,B,mid+1,ubound);
     }
+    /* the merge occurs adding in array B the elements from array A in a sorted way */
     merge(A,B,lbound,mid,ubound);
+    /* copy the contents of array B to array A, since the array B is an sorted, array A will also be */
     copy(A,B,ubound);
 }
 
+/* the merge occurs adding in array B the elements from array A in a sorted way */
 void merge(int A[],int B[],int lbound, int mid, int ubound) {
     int i = lbound;
     int j = mid + 1;
     int k = lbound;
+    /* stating from the beginning of each domain, we check which one is smaller and add it to the begin of array B */
+    /* then we increment the starting point in the domain from which was the smaller element and repeat the process until one of the domains is exhausted */
     while (i <= mid && j <= ubound) {
         if (A[i] <= A[j]) {
             B[k] = A[i];
@@ -55,6 +56,7 @@ void merge(int A[],int B[],int lbound, int mid, int ubound) {
         }
         ++k;
     }
+    /* when one of the domains is exhausted, we chech which one is not and then we add the remaining elements from it to the array B */
     if (i > mid) {
         while (j <= ubound) {
             B[k] = A[j];
@@ -71,6 +73,7 @@ void merge(int A[],int B[],int lbound, int mid, int ubound) {
     }
 }
 
+/* copy elements from array B to array A */
 void copy(int A[],int B[],int n) {
     for (int i = 0; i <= n; ++i) {
         A[i] = B[i];
