@@ -54,7 +54,7 @@ int partition(int A[], int lbound, int ubound) {
             A[end] = t;
         }
     }
-    /* when start > end, it means that at this point, if we swap the pivot element with the end element, the subarray will be as we want */
+    /* when start >= end, it means that at this point, if we swap the pivot element with the end element, the subarray will be as we want */
     int t = A[lbound];
     A[lbound] = A[end];
     A[end] = t;
