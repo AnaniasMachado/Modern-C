@@ -1,2 +1,2 @@
 # Modern-C
-Repository to store the code used or created while doing the exercises and challenges from the book.
+Repository to store the code created while doing the challenges from the book.
