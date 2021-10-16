@@ -45,11 +45,11 @@ void factorDo(size_t N) {
     less than half of the number from 0 to N are prime 
     we create this array B to store the primes that we
     encountered with the sieve function. */
-    size_t B[N/2];
+    size_t B[N];
     size_t idx = 0;
 
     /* First we initialize B with 0s */
-    for (size_t i = 0; i < (N/2); ++i)
+    for (size_t i = 0; i < N; ++i)
         B[i] = 0;
     
     /* Then we substitute the first values to the primes */
@@ -58,13 +58,9 @@ void factorDo(size_t N) {
             B[idx] = i+2;
             ++idx;
         }
-        if (idx + 1 == (N/2)) {
-            printf("Break\n");
-            break;
-        }
     }
 
-    size_t ub = (N/2);
+    size_t ub = N;
 
     for (size_t j = 0; j < ub; ++j) {
         if (B[j]) {
