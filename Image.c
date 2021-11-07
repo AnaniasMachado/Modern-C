@@ -164,38 +164,33 @@ void Image_to_sepia(const Image *orig, Image *sepia) {
 // int main(int argc, char* argv[argc+1]) {
 //     clock_t start = clock();
 
-//     Image img_sky, img_shapes, img_Yukina;
+//     Image img_sky, img_shapes;
 
 //     // Loads the images
 //     Image_load(&img_sky, "sky.jpg");
 //     Image_load(&img_shapes, "Shapes.png");
-//     Image_load(&img_Yukina, "Yukina.png");
 
 //     // Checks if occured some problem
-//     if (img_sky.data == NULL || img_shapes.data == NULL || img_Yukina.data == NULL) {
+//     if (img_sky.data == NULL || img_shapes.data == NULL) {
 //         fprintf(stderr, "Error in loading the images\n");
 //         abort();
 //     }
 
 //     // Converts the images to gray
-//     Image img_sky_gray, img_shapes_gray, img_Yukina_gray;
+//     Image img_sky_gray, img_shapes_gray;
 //     Image_to_gray(&img_sky, &img_sky_gray);
 //     Image_to_gray(&img_shapes, &img_shapes_gray);
-//     Image_to_gray(&img_Yukina, &img_Yukina_gray);
 
 //     // Converts the images to sepia
-//     Image img_sky_sepia, img_shapes_sepia, img_Yukina_sepia;
+//     Image img_sky_sepia, img_shapes_sepia;
 //     Image_to_sepia(&img_sky, &img_sky_sepia);
 //     Image_to_sepia(&img_shapes, &img_shapes_sepia);
-//     Image_to_sepia(&img_Yukina, &img_Yukina_sepia);
 
 //     // Saves the images
 //     Image_save_jpg(&img_sky_gray, "sky_gray.jpg");
 //     Image_save_jpg(&img_sky_sepia, "sky_sepia.jpg");
 //     Image_save_png(&img_shapes_gray, "Shapes_gray.png");
 //     Image_save_png(&img_shapes_sepia, "Shapes_sepia.png");
-//     Image_save_png(&img_Yukina_gray, "Yukina_gray.png");
-//     Image_save_png(&img_Yukina_sepia, "Yukina_sepia.png");
 
 //     // Release memory
 //     Image_free(&img_sky);
@@ -205,10 +200,6 @@ void Image_to_sepia(const Image *orig, Image *sepia) {
 //     Image_free(&img_shapes);
 //     Image_free(&img_shapes_gray);
 //     Image_free(&img_shapes_sepia);
-
-//     Image_free(&img_Yukina);
-//     Image_free(&img_Yukina_gray);
-//     Image_free(&img_Yukina_sepia);
 
 //     // Time taken
 //     printf("Time taken: %.8fs\n", (double)(clock() - start)/CLOCKS_PER_SEC);
