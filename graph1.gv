@@ -1,0 +1,11 @@
+digraph graphname {
+	node[shape=ellipse];
+	edge[color=blue,    ];
+	layout=dot;
+	6 -> 5
+	5 -> 1
+	1 -> 3
+	6 -> 9
+	9 -> 8
+	
+}
