@@ -27,6 +27,18 @@ void color_generator(Colors *colors, uint8_t num) {
     }
 }
 
+// Free the memory allocated for a colors if allocated
+void free_colors(Colors *colors) {
+    if (colors->red != NULL)
+        free(colors->red);
+    if (colors->green != NULL)
+        free(colors->green);
+    if (colors->blue != NULL)
+        free(colors->blue);
+    if (colors != NULL)
+        free(colors);
+}
+
 // Calculate the index of the region a certain pixel is in
 uint8_t get_index(uint8_t val, uint8_t region_size) {
     for (uint8_t i = 0; i < 255; i += region_size) {
@@ -57,7 +69,7 @@ void partition_colored(Image *img, Image *regions, size_t num) {
         *(p + 2) = colors->blue[idx];
     }
 
-    free(colors);
+    free_colors(colors);
 }
 
 // Calculates how many pixels there are in each region and stores it in "p"
